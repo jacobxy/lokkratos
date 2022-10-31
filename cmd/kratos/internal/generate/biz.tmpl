@@ -1,0 +1,40 @@
+package biz
+
+import (
+	"context"
+
+	"github.com/go-kratos/kratos/v2/errors"
+	"github.com/go-kratos/kratos/v2/log"
+)
+
+var (
+	// ErrUserNotFound is user not found.
+	// ErrUserNotFound = errors.NotFound(pb.ErrorReason_USER_NOT_FOUND.String(), "user not found")
+)
+
+// {{.Name}} is a {{.Name}} model.
+type {{.Name}} struct {
+	Hello string
+}
+
+// {{.Name}}Repo is a Greater repo.
+type {{.Name}}Repo interface {
+	Demo(context.Context) (*{{.Name}}, error)
+}
+
+// {{.Name}}Usecase is a {{.Name}} usecase.
+type {{.Name}}Usecase struct {
+	repo {{.Name}}Repo
+	log  *log.Helper
+}
+
+// New{{.Name}}Usecase new a {{.Name}} usecase.
+func New{{.Name}}Usecase(repo {{.Name}}Repo, logger log.Logger) *{{.Name}}Usecase {
+	return &{{.Name}}Usecase{repo: repo, log: log.NewHelper(logger)}
+}
+
+// Demo{{.Name}} Demos a {{.Name}}, and returns the new {{.Name}}.
+func (uc *{{.Name}}Usecase) Demo{{.Name}}(ctx context.Context, g *{{.Name}}) (*{{.Name}}, error) {
+	//TODO
+	return uc.repo.Save(ctx, g)
+}

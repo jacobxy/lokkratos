@@ -1,0 +1,24 @@
+package data
+
+import (
+	"{{.ModName}}/internal/conf"
+	"{{.ModName}}/internal/biz"
+	"github.com/go-kratos/kratos/v2/log"
+)
+
+type {{.Name}}Repo struct {
+	data *Data
+	log *log.Helper
+}
+
+func New{{.Name}}Repo(data *Data, logger log.logger) biz.{{.Name}}Repo {
+	return &{{.Name}}Repo{
+		data: data,
+		log: log.NewHelper(logger),
+	}
+}
+
+func (r *{{.Name}}Repo)Demo(ctx context.Context, input *biz.{{.Name}}Input) (*biz.{{.Name}}Output, error) { 
+	// TODO
+	return nil, nil
+}
