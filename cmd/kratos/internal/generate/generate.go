@@ -15,7 +15,7 @@ import (
 
 // CmdNew represents the new command.
 var CmdNew = &cobra.Command{
-	Use:   "generate",
+	Use:   "gen",
 	Short: "Create a biz/data template",
 	Long:  "Create a layer template  Example: kratos generate -l biz -n User -t internal/biz/user.go",
 	Run:   run,
